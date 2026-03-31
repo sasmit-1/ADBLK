@@ -253,12 +253,12 @@ function InstallSection() {
   const steps = [
     {
       num: '01',
-      title: 'Clone or Download the Repository',
+      title: 'Download & Extract',
       desc: (
         <>
-          Head to the <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-purple)', textDecoration: 'underline' }}>GitHub repository</a> and
-          click the green <code>Code</code> button, then <code>Download ZIP</code>.
-          Extract the ZIP to a folder you will remember, like <code>Desktop/AdBlck</code>.
+          Click the <strong>Download Setup</strong> button above to download the ZIP file. 
+          Extract it somewhere memorable (like your Desktop). <br/><br/>
+          <strong style={{ color: 'var(--accent-rose)' }}>CRITICAL:</strong> Sometimes Windows/Mac creates a "double folder" (e.g. <code>ADBLK-main/ADBLK-main</code>). Make sure you open the folder until you actually see the <code>manifest.json</code> file sitting there.
         </>
       ),
       icon: <Package size={20} />
@@ -281,7 +281,7 @@ function InstallSection() {
       desc: (
         <>
           Click <code>Load unpacked</code> in the top-left corner.
-          Navigate to the folder where you extracted AdBlck and select it.
+          Select the exact folder that has <code>manifest.json</code> inside it (do <strong>not</strong> select the outer wrapper folder!).
           The extension icon will appear in your toolbar — you are now protected.
         </>
       ),
