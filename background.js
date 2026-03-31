@@ -1,5 +1,17 @@
 // Background service worker for CleanView Ad Blocker
 
+// Initialize state
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.storage.local.get(['enabled', 'totalBlocked'], (result) => {
+    if (result.enabled === undefined) {
+      chrome.storage.local.set({ enabled: true });
+    }
+    if (result.totalBlocked === undefined) {
+      chrome.storage.local.set({ totalBlocked: 0 });
+    }
+  });
+});
+
 let blockedCount = 0;
 
 // Track blocked requests and update badge

@@ -5,6 +5,7 @@
   "description": "Blocks ads and trackers for a cleaner, faster web.",
   "permissions": [
     "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
     "storage",
     "tabs"
   ],
