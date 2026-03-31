@@ -1,97 +1,415 @@
-import React from 'react'
-import { AuroraBackground } from './components/reactbits/AuroraBackground'
+import React, { useState, useEffect } from 'react'
+import LightRays from './components/reactbits/LightRays'
+import TargetCursor from './components/reactbits/TargetCursor'
 import { GradientText } from './components/reactbits/GradientText'
 import { SpotlightCard } from './components/reactbits/SpotlightCard'
-import { AnimatedStepper } from './components/reactbits/AnimatedStepper'
-import { Shield, FastForward, EyeOff, Download } from 'lucide-react'
+import { Shield, Zap, EyeOff, Download, ExternalLink, ChevronRight, Star, Package, Settings, MousePointerClick } from 'lucide-react'
 import { motion } from 'framer-motion'
 import './index.css'
 
-function App() {
-  const features = [
-    { icon: <FastForward size={32} color="#0ea5e9"/>, title: 'YouTube Auto Skipper', desc: 'Automatically 16x fast-forwards and clicks "Skip Ad" instantly for pre-rolls.' },
-    { icon: <EyeOff size={32} color="#a855f7"/>, title: 'Cosmetic Filtering', desc: 'Surgically removes display ad containers (banners, outbrain, taboola) giving you clean pages.' },
-    { icon: <Shield size={32} color="#22c55e"/>, title: 'Network Level Blocks', desc: 'Intercepts common tracker scripts using the new Manifest V3 DeclarativeNetRequest API.' }
-  ];
+const GITHUB_URL = 'https://github.com/sasmit-1/ADBLK'
 
-  const installSteps = [
-    { title: 'Download & Extract', description: 'Download the source package and extract it to a dedicated folder on your local drive.' },
-    { title: 'Open Chrome Extensions', description: 'Navigate to chrome://extensions in your address bar and enable "Developer mode" in the top right.' },
-    { title: 'Load Unpacked', description: "Click the \"Load unpacked\" button and select the extracted AdBlck folder. You're strictly protected!" }
-  ];
+// Inline GitHub SVG icon (not in lucide-react)
+const GithubIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+  </svg>
+)
+
+// Animation variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }
+  })
+}
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 }
+  }
+}
+
+function Navbar() {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50)
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <AuroraBackground>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem', width: '100%', boxSizing: 'border-box' }}>
-        
-        {/* HERO */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          style={{ textAlign: 'center', marginBottom: '6rem', paddingTop: '4rem' }}
-        >
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem', padding: '0.5rem 1rem', background: 'rgba(255,255,255,0.05)', borderRadius: '2rem', border: '1px solid rgba(255,255,255,0.1)' }}>
-            <Shield size={20} color="#9333ea" />
-            <span style={{ color: '#cbd5e1', fontSize: '0.875rem', fontWeight: 500 }}>Manifest V3 Compliant Adblocker</span>
+    <motion.nav
+      className="navbar"
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+      style={{ padding: scrolled ? '0.5rem 2rem' : '1rem 2rem' }}
+    >
+      <div className="navbar-inner" style={{
+        background: scrolled ? 'rgba(3, 0, 20, 0.85)' : 'rgba(3, 0, 20, 0.6)',
+        boxShadow: scrolled ? '0 8px 32px rgba(0,0,0,0.4)' : 'none'
+      }}>
+        <div className="navbar-brand">
+          <div className="shield-icon">
+            <Shield size={18} color="white" />
           </div>
-          
-          <h1 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', fontWeight: 800, margin: '1rem 0', lineHeight: 1.1 }}>
-            Control the Web with<br/>
-            <GradientText text="CleanView AdBlck" />
-          </h1>
-          
-          <p style={{ fontSize: '1.25rem', color: '#94a3b8', maxWidth: '600px', margin: '0 auto 3rem auto', lineHeight: 1.6 }}>
-            Experience the web without borders. Skip unskippable video ads, eradicate trackers, and stop banner overload completely free.
-          </p>
-
-          <motion.button 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            style={{
-              background: 'linear-gradient(135deg, #0ea5e9, #6366f1)', border: 'none', padding: '1rem 2.5rem',
-              borderRadius: '2rem', color: 'white', fontSize: '1.125rem', fontWeight: 'bold', cursor: 'pointer',
-              display: 'inline-flex', alignItems: 'center', gap: '0.75rem', boxShadow: '0 10px 25px -5px rgba(99, 102, 241, 0.5)'
-            }}
-          >
-            <Download size={24} /> Get Source Code
-          </motion.button>
-        </motion.div>
-
-        {/* FEATURES GRID */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '8rem' }}>
-          {features.map((feat, i) => (
-             <motion.div
-               key={i}
-               initial={{ opacity: 0, y: 20 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               transition={{ delay: i * 0.2 }}
-               style={{ height: '100%' }}
-             >
-                <SpotlightCard style={{ height: '100%', minHeight: '300px', display: 'flex', flexDirection: 'column', gap: '1.5rem', boxSizing: 'border-box' }}>
-                  <div style={{ width: '64px', height: '64px', borderRadius: '1rem', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    {feat.icon}
-                  </div>
-                  <h3 style={{ fontSize: '1.5rem', margin: 0 }}>{feat.title}</h3>
-                  <p style={{ color: '#94a3b8', lineHeight: 1.6, fontSize: '1rem', margin: 0 }}>{feat.desc}</p>
-                </SpotlightCard>
-             </motion.div>
-          ))}
+          <span>AdBlck</span>
         </div>
 
-        {/* INSTALLATION STEPS */}
-        <div style={{ maxWidth: '800px', margin: '0 auto', paddingBottom: '6rem' }}>
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once:true }}>
-            <h2 style={{ fontSize: '2.5rem', textAlign: 'center', margin: '0 0 1rem 0' }}>Get Started in <GradientText text="3 Minutes" /></h2>
-            <p style={{ textAlign: 'center', color: '#94a3b8', fontSize: '1.125rem', margin: 0 }}>Side-load the extension without the Chrome Web Store fees.</p>
-          </motion.div>
-          
-          <AnimatedStepper steps={installSteps} />
-        </div>
-
+        <ul className="navbar-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#install">Install</a></li>
+          <li>
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="navbar-github-btn cursor-target"
+            >
+              <GithubIcon size={16} />
+              GitHub
+            </a>
+          </li>
+        </ul>
       </div>
-    </AuroraBackground>
+    </motion.nav>
+  )
+}
+
+function HeroSection() {
+  return (
+    <section className="hero-section" id="hero">
+      <motion.div
+        className="hero-badge"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        <span className="pulse-dot" />
+        Manifest V3 &middot; Open Source &middot; Free Forever
+      </motion.div>
+
+      <motion.h1
+        className="hero-title"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+      >
+        <span className="line-muted">F*ck The Ads</span>
+        <br />
+        <GradientText text="Save your time" />
+      </motion.h1>
+
+      <motion.p
+        className="hero-subtitle"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.6 }}
+      >
+        A next-gen adblocker built for Manifest V3. Skip unskippable YouTube ads,
+        obliterate trackers, and experience the web at full speed — completely free.
+      </motion.p>
+
+      <motion.div
+        className="hero-actions"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.8 }}
+      >
+        <motion.a
+          href={`${GITHUB_URL}/archive/refs/heads/main.zip`}
+          className="btn-primary cursor-target"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+        >
+          <Download size={20} />
+          Download Setup
+          <ChevronRight size={16} />
+        </motion.a>
+        <motion.a
+          href="#install"
+          className="btn-secondary cursor-target"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+        >
+          <MousePointerClick size={18} />
+          How to Install
+        </motion.a>
+      </motion.div>
+
+      <motion.div
+        className="stats-bar"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 1.0 }}
+      >
+        <div className="stat-item">
+          <div className="stat-value">MV3</div>
+          <div className="stat-label">Manifest Version</div>
+        </div>
+        <div className="stat-divider" />
+        <div className="stat-item">
+          <div className="stat-value">16x</div>
+          <div className="stat-label">Ad Fast-Forward</div>
+        </div>
+        <div className="stat-divider" />
+        <div className="stat-item">
+          <div className="stat-value">100%</div>
+          <div className="stat-label">Free &amp; Open Source</div>
+        </div>
+      </motion.div>
+    </section>
+  )
+}
+
+function FeaturesSection() {
+  const features = [
+    {
+      icon: <Zap size={26} color="#38bdf8" />,
+      colorClass: 'blue',
+      title: 'YouTube Ad Annihilator',
+      desc: 'Instantly detects pre-roll ads and fast-forwards them at 16x speed. The "Skip Ad" button gets clicked the millisecond it appears. No waiting, no interruptions.'
+    },
+    {
+      icon: <EyeOff size={26} color="#a78bfa" />,
+      colorClass: 'purple',
+      title: 'Cosmetic Filtering Engine',
+      desc: 'Surgically removes banner ads, Outbrain widgets, Taboola feeds, and sponsored content blocks. Pages load faster and look cleaner — the way they should.'
+    },
+    {
+      icon: <Shield size={26} color="#34d399" />,
+      colorClass: 'emerald',
+      title: 'Network-Level Blocking',
+      desc: 'Intercepts tracking scripts and ad network requests using the new DeclarativeNetRequest API. Built for Chrome\'s Manifest V3 from the ground up.'
+    }
+  ]
+
+  return (
+    <section className="section" id="features">
+      <motion.div
+        className="section-header"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <div className="section-label">
+          <Star size={14} />
+          Core Features
+        </div>
+        <h2 className="section-title">
+          Everything you need.<br />
+          <span style={{ color: 'var(--text-secondary)' }}>Nothing you don't.</span>
+        </h2>
+        <p className="section-desc">
+          Three powerful modules working together to give you the cleanest browsing experience possible.
+        </p>
+      </motion.div>
+
+      <div className="glow-line" style={{ marginBottom: '3rem' }} />
+
+      <motion.div
+        className="features-grid"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+      >
+        {features.map((feat, i) => (
+          <motion.div key={i} variants={fadeUp} custom={i}>
+            <SpotlightCard
+              className="cursor-target"
+              style={{
+                height: '100%',
+                minHeight: '280px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0',
+                boxSizing: 'border-box',
+                border: 'none',
+                background: 'transparent'
+              }}
+            >
+              <div className={`feature-icon-wrapper ${feat.colorClass}`}>
+                {feat.icon}
+              </div>
+              <h3 style={{ marginBottom: '0.75rem' }}>{feat.title}</h3>
+              <p style={{ color: '#94a3b8', lineHeight: 1.7, fontSize: '0.95rem' }}>{feat.desc}</p>
+            </SpotlightCard>
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
+  )
+}
+
+function InstallSection() {
+  const steps = [
+    {
+      num: '01',
+      title: 'Clone or Download the Repository',
+      desc: (
+        <>
+          Head to the <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-purple)', textDecoration: 'underline' }}>GitHub repository</a> and
+          click the green <code>Code</code> button, then <code>Download ZIP</code>.
+          Extract the ZIP to a folder you will remember, like <code>Desktop/AdBlck</code>.
+        </>
+      ),
+      icon: <Package size={20} />
+    },
+    {
+      num: '02',
+      title: 'Open Chrome Extension Settings',
+      desc: (
+        <>
+          Type <code>chrome://extensions</code> into your Chrome address bar and hit Enter.
+          In the top-right corner, toggle on <code>Developer mode</code>.
+          This unlocks the ability to side-load extensions directly.
+        </>
+      ),
+      icon: <Settings size={20} />
+    },
+    {
+      num: '03',
+      title: 'Load the Extension',
+      desc: (
+        <>
+          Click <code>Load unpacked</code> in the top-left corner.
+          Navigate to the folder where you extracted AdBlck and select it.
+          The extension icon will appear in your toolbar — you are now protected.
+        </>
+      ),
+      icon: <Shield size={20} />
+    }
+  ]
+
+  return (
+    <section className="section" id="install">
+      <motion.div
+        className="section-header"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <div className="section-label">
+          <Download size={14} />
+          Installation
+        </div>
+        <h2 className="section-title">
+          Up and running in <GradientText text="3 minutes" />
+        </h2>
+        <p className="section-desc">
+          No web store fees, no reviews, no waiting. Side-load it directly into Chrome with these three steps.
+        </p>
+      </motion.div>
+
+      <div className="glow-line" style={{ marginBottom: '3rem' }} />
+
+      <div className="steps-container">
+        {steps.map((step, i) => (
+          <motion.div
+            key={i}
+            className="step-card cursor-target"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: i * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            <div className="step-number">{step.num}</div>
+            <div className="step-content">
+              <h3>{step.title}</h3>
+              <p>{step.desc}</p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* CTA after steps */}
+      <motion.div
+        style={{ textAlign: 'center', marginTop: '3rem' }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.4 }}
+      >
+        <motion.a
+          href={GITHUB_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-primary cursor-target"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          style={{ display: 'inline-flex' }}
+        >
+          <GithubIcon size={20} />
+          View on GitHub
+          <ExternalLink size={16} />
+        </motion.a>
+      </motion.div>
+    </section>
+  )
+}
+
+function Footer() {
+  return (
+    <footer className="footer">
+      <div className="footer-inner">
+        <p>&copy; {new Date().getFullYear()} AdBlck &mdash; Built with purpose, not profit.</p>
+        <div className="footer-links">
+          <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="#features">Features</a>
+          <a href="#install">Install</a>
+        </div>
+      </div>
+    </footer>
+  )
+}
+
+function App() {
+  return (
+    <div className="page-wrapper">
+      {/* WebGL Light Rays Background */}
+      <div className="light-rays-bg">
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#8b5cf6"
+          raysSpeed={0.6}
+          lightSpread={1.5}
+          rayLength={2.5}
+          pulsating={true}
+          fadeDistance={1.2}
+          saturation={1.2}
+          followMouse={true}
+          mouseInfluence={0.15}
+          distortion={0.3}
+        />
+      </div>
+
+      {/* Target Cursor (desktop only) */}
+      <TargetCursor
+        targetSelector=".cursor-target"
+        spinDuration={3}
+        hideDefaultCursor={true}
+        hoverDuration={0.15}
+        parallaxOn={true}
+      />
+
+      {/* Content */}
+      <div className="content-layer">
+        <Navbar />
+        <HeroSection />
+        <FeaturesSection />
+        <InstallSection />
+        <Footer />
+      </div>
+    </div>
   )
 }
 
