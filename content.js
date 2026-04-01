@@ -154,6 +154,32 @@
   const styleId = 'cleanview-adblocker-style';
   let observer = null;
 
+  // ── Popunder blocker: intercept window.open() calls ─────────────────
+  // Pirate sites call window.open() on click events to spawn gambling tabs.
+  // We override it to block known scam/gambling domains.
+  const blockedPopunderDomains = [
+    'stake.com', 'stake.us', 'roobet.com', 'gamdom.com', 'rollbit.com',
+    'duelbits.com', 'bc.game', '1xbet.com', 'betwinner.com', '1win.com',
+    'mostbet.com', 'melbet.com', 'pin-up.com', 'linebet.com', '22bet.com',
+    'betway.com', 'parimatch.com', 'megapari.com', 'fairspin.io',
+    'crazygames.com', 'clickadu.com', 'propellerads.com', 'hilltopads.net',
+    'monetag.com', 'adsterra.com', 'juicyads.com', 'exoclick.com',
+    'trafficjunky.net', 'popads.net', 'popcash.net', 'trafficstars.com'
+  ];
+
+  const originalWindowOpen = window.open;
+  window.open = function(url, ...args) {
+    if (url) {
+      const urlStr = String(url).toLowerCase();
+      for (let i = 0; i < blockedPopunderDomains.length; i++) {
+        if (urlStr.includes(blockedPopunderDomains[i])) {
+          return null; // Block it silently
+        }
+      }
+    }
+    return originalWindowOpen.call(window, url, ...args);
+  };
+
   // ── Build one CSS rule from all selectors ────────────────────────────
   const cssRule = adSelectors.join(',') +
     ' { display: none !important; visibility: hidden !important;' +
@@ -237,19 +263,47 @@
     }
 
     // 4. Neutralize transparent clickjacking overlays (common on pirate sites)
-    // These are invisible massive divs placed over the content that trigger popunders when clicked.
-    const rects = document.querySelectorAll('div, a, section');
-    for (let i = 0; i < rects.length; i++) {
-        const el = rects[i];
-        const style = window.getComputedStyle(el);
-        if ((style.zIndex > 9000 || el.style.zIndex > 9000) && (style.opacity === '0' || style.backgroundColor === 'rgba(0, 0, 0, 0)' || style.backgroundColor === 'transparent')) {
-            const rect = el.getBoundingClientRect();
-            // If the invisible element covers more than 80% of the screen, nuke it
-            if (rect.width > window.innerWidth * 0.8 && rect.height > window.innerHeight * 0.8) {
-                el.style.setProperty('display', 'none', 'important');
-                el.style.setProperty('pointer-events', 'none', 'important');
-            }
+    // These are invisible massive divs placed over content to trigger popunders.
+    const allEls = document.querySelectorAll('div, a, section, span, iframe');
+    for (let i = 0; i < allEls.length; i++) {
+      const el = allEls[i];
+      const style = window.getComputedStyle(el);
+      const zIdx = parseInt(style.zIndex, 10) || 0;
+      const opacity = parseFloat(style.opacity);
+
+      // Detect: high z-index + invisible/near-invisible + covers most of screen
+      if (zIdx > 999 && opacity < 0.15 && style.position !== 'static') {
+        const rect = el.getBoundingClientRect();
+        if (rect.width > window.innerWidth * 0.7 && rect.height > window.innerHeight * 0.7) {
+          el.style.setProperty('display', 'none', 'important');
+          el.style.setProperty('pointer-events', 'none', 'important');
         }
+      }
+
+      // Detect: position:fixed covering full viewport with no visible content
+      if (style.position === 'fixed' && zIdx > 100) {
+        const rect = el.getBoundingClientRect();
+        if (rect.width > window.innerWidth * 0.9 && rect.height > window.innerHeight * 0.9 && opacity < 0.2) {
+          el.style.setProperty('display', 'none', 'important');
+          el.style.setProperty('pointer-events', 'none', 'important');
+        }
+      }
+    }
+
+    // 5. Strip onclick handlers from anchors pointing to gambling/scam sites
+    const links = document.querySelectorAll('a[href]');
+    for (let i = 0; i < links.length; i++) {
+      const href = (links[i].href || '').toLowerCase();
+      for (let j = 0; j < blockedPopunderDomains.length; j++) {
+        if (href.includes(blockedPopunderDomains[j])) {
+          links[i].removeAttribute('href');
+          links[i].removeAttribute('onclick');
+          links[i].removeAttribute('onmousedown');
+          links[i].style.setProperty('pointer-events', 'none', 'important');
+          links[i].style.setProperty('display', 'none', 'important');
+          break;
+        }
+      }
     }
   }
 
