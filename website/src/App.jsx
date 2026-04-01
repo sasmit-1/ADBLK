@@ -3,7 +3,7 @@ import LightRays from './components/reactbits/LightRays'
 
 import { GradientText } from './components/reactbits/GradientText'
 import { SpotlightCard } from './components/reactbits/SpotlightCard'
-import { Shield, Zap, EyeOff, Download, ExternalLink, ChevronRight, Star, Package, Settings, MousePointerClick, Activity, Code } from 'lucide-react'
+import { Shield, Zap, EyeOff, Download, ExternalLink, ChevronRight, Star, Package, Settings, MousePointerClick, Activity, Code, Ban } from 'lucide-react'
 import { motion } from 'framer-motion'
 import './index.css'
 
@@ -212,6 +212,12 @@ function FeaturesSection() {
       colorClass: 'yellow',
       title: 'Manga & Streaming Protection',
       desc: 'Decimates shady popup networks (ExoClick, PopAds) and aggressively collapses sidebar "Sponsored" blocks on pirate streaming and manga sites.'
+    },
+    {
+      icon: <Ban size={26} color="#f43f5e" />,
+      colorClass: 'rose',
+      title: 'Clickjack & Popunder Killer',
+      desc: 'Detects invisible full-screen overlay traps that hijack your clicks to open gambling sites like Stake or 1xBet. Neutralizes them before your click ever registers.'
     }
   ]
 

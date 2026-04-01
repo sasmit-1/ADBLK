@@ -8,10 +8,9 @@
     "condition": {
       "urlFilter": "||doubleclick.net^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -27,10 +26,9 @@
     "condition": {
       "urlFilter": "||googlesyndication.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -48,7 +46,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -66,7 +63,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -84,7 +80,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -102,7 +97,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -120,7 +114,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -138,7 +131,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -156,7 +148,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -174,7 +165,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -192,7 +182,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -210,7 +199,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -228,7 +216,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -246,7 +233,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -264,7 +250,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -282,7 +267,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -300,7 +284,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -318,7 +301,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -336,7 +318,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -354,7 +335,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -372,7 +352,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -390,7 +369,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -408,7 +386,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -426,7 +403,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -444,7 +420,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -462,7 +437,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -480,7 +454,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -498,7 +471,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -516,7 +488,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -534,7 +505,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -552,7 +522,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -570,7 +539,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -588,7 +556,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -606,7 +573,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "xmlhttprequest"
       ]
@@ -623,7 +589,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -641,7 +606,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -658,7 +622,6 @@
       "urlFilter": "||imasdk.googleapis.com^",
       "resourceTypes": [
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -676,7 +639,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -694,7 +656,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -712,7 +673,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -728,10 +688,9 @@
     "condition": {
       "urlFilter": "||exoclick.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -747,10 +706,9 @@
     "condition": {
       "urlFilter": "||exosrv.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -766,10 +724,9 @@
     "condition": {
       "urlFilter": "||juicyads.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -785,10 +742,9 @@
     "condition": {
       "urlFilter": "||trafficjunky.net^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -804,10 +760,9 @@
     "condition": {
       "urlFilter": "||trafficjunky.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -823,10 +778,9 @@
     "condition": {
       "urlFilter": "||clickadu.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -842,10 +796,9 @@
     "condition": {
       "urlFilter": "||propellerads.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -861,10 +814,9 @@
     "condition": {
       "urlFilter": "||hilltopads.net^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -880,10 +832,9 @@
     "condition": {
       "urlFilter": "||hilltopads.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -899,10 +850,9 @@
     "condition": {
       "urlFilter": "||adsterra.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -918,10 +868,9 @@
     "condition": {
       "urlFilter": "||monetag.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -937,10 +886,9 @@
     "condition": {
       "urlFilter": "||a-ads.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -956,10 +904,9 @@
     "condition": {
       "urlFilter": "||popcash.net^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -975,10 +922,9 @@
     "condition": {
       "urlFilter": "||popads.net^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -994,10 +940,9 @@
     "condition": {
       "urlFilter": "||popmyads.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1013,10 +958,9 @@
     "condition": {
       "urlFilter": "||revenuehits.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1032,10 +976,9 @@
     "condition": {
       "urlFilter": "||revcontent.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1051,10 +994,9 @@
     "condition": {
       "urlFilter": "||mgid.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1072,7 +1014,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1088,10 +1029,9 @@
     "condition": {
       "urlFilter": "||adspyglass.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1107,10 +1047,9 @@
     "condition": {
       "urlFilter": "||bidvertiser.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1126,10 +1065,9 @@
     "condition": {
       "urlFilter": "||adf.ly^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1145,10 +1083,9 @@
     "condition": {
       "urlFilter": "||crazygames.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1164,10 +1101,9 @@
     "condition": {
       "urlFilter": "||ad.plus^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1183,10 +1119,9 @@
     "condition": {
       "urlFilter": "||richads.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1202,10 +1137,9 @@
     "condition": {
       "urlFilter": "||galaksion.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1221,10 +1155,9 @@
     "condition": {
       "urlFilter": "||onclicka.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1240,10 +1173,9 @@
     "condition": {
       "urlFilter": "||onclickads.net^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1259,10 +1191,9 @@
     "condition": {
       "urlFilter": "||clickaine.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1278,10 +1209,9 @@
     "condition": {
       "urlFilter": "||adcash.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1297,10 +1227,9 @@
     "condition": {
       "urlFilter": "||admaven.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1316,10 +1245,9 @@
     "condition": {
       "urlFilter": "||noqreport.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1335,10 +1263,9 @@
     "condition": {
       "urlFilter": "||go.oclasrv.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1354,10 +1281,9 @@
     "condition": {
       "urlFilter": "||syndication.realsrv.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1373,10 +1299,9 @@
     "condition": {
       "urlFilter": "||tsyndicate.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1392,10 +1317,9 @@
     "condition": {
       "urlFilter": "||marphezis.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1411,10 +1335,9 @@
     "condition": {
       "urlFilter": "||adskeeper.co.uk^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1430,10 +1353,9 @@
     "condition": {
       "urlFilter": "||adskeeper.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1449,10 +1371,9 @@
     "condition": {
       "urlFilter": "||adtelligent.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1468,10 +1389,9 @@
     "condition": {
       "urlFilter": "||ad-maven.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1487,10 +1407,9 @@
     "condition": {
       "urlFilter": "||betteradsplayer.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1506,9 +1425,8 @@
     "condition": {
       "urlFilter": "||disqus.com/embed/ads^",
       "resourceTypes": [
-        "popup",
-        "script",
         "main_frame",
+        "script",
         "sub_frame"
       ]
     }
@@ -1522,10 +1440,9 @@
     "condition": {
       "urlFilter": "||serving-sys.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1543,7 +1460,6 @@
       "resourceTypes": [
         "image",
         "main_frame",
-        "popup",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1559,10 +1475,9 @@
     "condition": {
       "urlFilter": "||ero-advertising.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1578,10 +1493,9 @@
     "condition": {
       "urlFilter": "||netpub-media.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1597,10 +1511,9 @@
     "condition": {
       "urlFilter": "||ladsrv.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1616,10 +1529,9 @@
     "condition": {
       "urlFilter": "||adxpremium.services^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1635,10 +1547,9 @@
     "condition": {
       "urlFilter": "||jads.co^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1654,10 +1565,9 @@
     "condition": {
       "urlFilter": "||s.optad360.com^",
       "resourceTypes": [
-        "other",
         "image",
         "main_frame",
-        "popup",
+        "other",
         "script",
         "sub_frame",
         "xmlhttprequest"
@@ -1673,13 +1583,12 @@
     "condition": {
       "urlFilter": "||stake.com^",
       "resourceTypes": [
-        "script",
         "image",
-        "xmlhttprequest",
-        "sub_frame",
-        "popup",
         "main_frame",
-        "other"
+        "other",
+        "script",
+        "sub_frame",
+        "xmlhttprequest"
       ]
     }
   },
@@ -1692,13 +1601,12 @@
     "condition": {
       "urlFilter": "||roobet.com^",
       "resourceTypes": [
-        "script",
         "image",
-        "xmlhttprequest",
-        "sub_frame",
-        "popup",
         "main_frame",
-        "other"
+        "other",
+        "script",
+        "sub_frame",
+        "xmlhttprequest"
       ]
     }
   },
@@ -1711,13 +1619,12 @@
     "condition": {
       "urlFilter": "||gamdom.com^",
       "resourceTypes": [
-        "script",
         "image",
-        "xmlhttprequest",
-        "sub_frame",
-        "popup",
         "main_frame",
-        "other"
+        "other",
+        "script",
+        "sub_frame",
+        "xmlhttprequest"
       ]
     }
   },
@@ -1730,13 +1637,12 @@
     "condition": {
       "urlFilter": "||rollbit.com^",
       "resourceTypes": [
-        "script",
         "image",
-        "xmlhttprequest",
-        "sub_frame",
-        "popup",
         "main_frame",
-        "other"
+        "other",
+        "script",
+        "sub_frame",
+        "xmlhttprequest"
       ]
     }
   },
@@ -1749,13 +1655,12 @@
     "condition": {
       "urlFilter": "||duelbits.com^",
       "resourceTypes": [
-        "script",
         "image",
-        "xmlhttprequest",
-        "sub_frame",
-        "popup",
         "main_frame",
-        "other"
+        "other",
+        "script",
+        "sub_frame",
+        "xmlhttprequest"
       ]
     }
   },
@@ -1768,13 +1673,12 @@
     "condition": {
       "urlFilter": "||bc.game^",
       "resourceTypes": [
-        "script",
         "image",
-        "xmlhttprequest",
-        "sub_frame",
-        "popup",
         "main_frame",
-        "other"
+        "other",
+        "script",
+        "sub_frame",
+        "xmlhttprequest"
       ]
     }
   },
@@ -1787,13 +1691,12 @@
     "condition": {
       "urlFilter": "||1xbet.com^",
       "resourceTypes": [
-        "script",
         "image",
-        "xmlhttprequest",
-        "sub_frame",
-        "popup",
         "main_frame",
-        "other"
+        "other",
+        "script",
+        "sub_frame",
+        "xmlhttprequest"
       ]
     }
   },
@@ -1806,13 +1709,12 @@
     "condition": {
       "urlFilter": "||betwinner.com^",
       "resourceTypes": [
-        "script",
         "image",
-        "xmlhttprequest",
-        "sub_frame",
-        "popup",
         "main_frame",
-        "other"
+        "other",
+        "script",
+        "sub_frame",
+        "xmlhttprequest"
       ]
     }
   }

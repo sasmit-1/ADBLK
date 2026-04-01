@@ -10,6 +10,7 @@ A lightweight, privacy-focused browser extension that blocks ads and trackers.
 - **250+ blocking rules** — 100+ ad networks + 50 tracker domains
 - **3-Layer Ad Killing** — CSS cosmetic filtering, active DOM scanning for "Sponsored Ads," and iframe src sniffing
 - **YouTube Ad Annihilator** — Insta-clicks skip buttons and massively fast-forwards unskippable ads
+- **Clickjack & Popunder Killer** — Detects invisible full-screen overlays that hijack clicks to open gambling/scam sites and neutralizes them
 - **Toggle on/off** — pause protection without removing the extension
 - **Counter** — tracks total requests blocked
 - **Clean popup UI** — see your protection status at a glance
@@ -75,6 +76,8 @@ Make sure each rule has a **unique `id`** number, then reload the extension.
 | Category | Examples |
 |---|---|
 | Ad Networks | Google Ads, DoubleClick, AppNexus, Taboola, Outbrain, Criteo |
+| Pirate Site Ads | ExoClick, PropellerAds, PopAds, Monetag, HilltopAds, AdMaven |
+| Gambling Redirects | Stake, Roobet, 1xBet, BetWinner, Gamdom, Rollbit, DuelBits |
 | Social Ads | Facebook Pixel, Twitter Ads, LinkedIn Ads, TikTok Pixel |
 | Analytics | Google Analytics, Hotjar, Mixpanel, FullStory, Segment |
 | Retargeting | AdRoll, Criteo, Bing Ads |
