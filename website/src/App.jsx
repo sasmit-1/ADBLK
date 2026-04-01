@@ -56,10 +56,8 @@ function Navbar() {
         boxShadow: scrolled ? '0 8px 32px rgba(0,0,0,0.4)' : 'none'
       }}>
         <div className="navbar-brand">
-          <div className="shield-icon">
-            <Shield size={18} color="white" />
-          </div>
-          <span>AdBlck</span>
+          <img src="/logo.png" alt="Adblk Logo" style={{ width: '28px', height: '28px', marginRight: '4px' }} />
+          <span>Adblk - By Sasmit Mondal</span>
         </div>
 
         <ul className="navbar-links">
@@ -355,7 +353,7 @@ function InstallSection() {
       desc: (
         <>
           Click the <strong>Download Setup</strong> button above to download the required extension files. 
-          Extract the downloaded <code>AdBlck-Extension.zip</code> somewhere memorable (like your Desktop). <br/><br/>
+          Extract the downloaded <code>Adblk-Extension.zip</code> somewhere memorable (like your Desktop). <br/><br/>
           <strong style={{ color: 'var(--accent-rose)' }}>CRITICAL:</strong> Make sure you extract the contents into a folder instead of just opening the ZIP directly. You need the folder containing <code>manifest.json</code>.
         </>
       ),
@@ -459,7 +457,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-inner">
-        <p>&copy; {new Date().getFullYear()} AdBlck &mdash; Built with purpose, not profit.</p>
+        <p>&copy; {new Date().getFullYear()} Adblk - By Sasmit Mondal &mdash; Built with purpose, not profit.</p>
         <div className="footer-links">
           <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="#features">Features</a>
