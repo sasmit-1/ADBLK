@@ -83,6 +83,24 @@ function Navbar() {
 }
 
 function HeroSection() {
+  const [isDownloading, setIsDownloading] = useState(false);
+
+  const handleDownloadClick = async (e) => {
+    e.preventDefault();
+    if (isDownloading) return; // Prevent multiple clicks
+    
+    setIsDownloading(true);
+    try {
+      const { downloadExtensionZip } = await import('./utils/downloadManager')
+      await downloadExtensionZip();
+    } catch (error) {
+      console.error('Download failed', error);
+      alert('Failed to bundle extension files. Please try again or download manually from GitHub.');
+    } finally {
+      setIsDownloading(false);
+    }
+  };
+
   return (
     <section className="hero-section" id="hero">
       <motion.div
@@ -123,14 +141,16 @@ function HeroSection() {
         transition={{ duration: 0.7, delay: 0.8 }}
       >
         <motion.a
-          href={`${GITHUB_URL}/archive/refs/heads/main.zip`}
+          href="#"
+          onClick={handleDownloadClick}
           className="btn-primary cursor-target"
+          style={{ opacity: isDownloading ? 0.7 : 1, pointerEvents: isDownloading ? 'none' : 'auto' }}
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
         >
           <Download size={20} />
-          Download Setup
-          <ChevronRight size={16} />
+          {isDownloading ? 'Packaging...' : 'Download Setup'}
+          {!isDownloading && <ChevronRight size={16} />}
         </motion.a>
         <motion.a
           href="#install"
@@ -256,9 +276,9 @@ function InstallSection() {
       title: 'Download & Extract',
       desc: (
         <>
-          Click the <strong>Download Setup</strong> button above to download the ZIP file. 
-          Extract it somewhere memorable (like your Desktop). <br/><br/>
-          <strong style={{ color: 'var(--accent-rose)' }}>CRITICAL:</strong> Sometimes Windows/Mac creates a "double folder" (e.g. <code>ADBLK-main/ADBLK-main</code>). Make sure you open the folder until you actually see the <code>manifest.json</code> file sitting there.
+          Click the <strong>Download Setup</strong> button above to download the required extension files. 
+          Extract the downloaded <code>AdBlck-Extension.zip</code> somewhere memorable (like your Desktop). <br/><br/>
+          <strong style={{ color: 'var(--accent-rose)' }}>CRITICAL:</strong> Make sure you extract the contents into a folder instead of just opening the ZIP directly. You need the folder containing <code>manifest.json</code>.
         </>
       ),
       icon: <Package size={20} />
