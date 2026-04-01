@@ -235,6 +235,22 @@
     if (window.location.hostname.includes('youtube.com')) {
       skipYouTubeVideoAds();
     }
+
+    // 4. Neutralize transparent clickjacking overlays (common on pirate sites)
+    // These are invisible massive divs placed over the content that trigger popunders when clicked.
+    const rects = document.querySelectorAll('div, a, section');
+    for (let i = 0; i < rects.length; i++) {
+        const el = rects[i];
+        const style = window.getComputedStyle(el);
+        if ((style.zIndex > 9000 || el.style.zIndex > 9000) && (style.opacity === '0' || style.backgroundColor === 'rgba(0, 0, 0, 0)' || style.backgroundColor === 'transparent')) {
+            const rect = el.getBoundingClientRect();
+            // If the invisible element covers more than 80% of the screen, nuke it
+            if (rect.width > window.innerWidth * 0.8 && rect.height > window.innerHeight * 0.8) {
+                el.style.setProperty('display', 'none', 'important');
+                el.style.setProperty('pointer-events', 'none', 'important');
+            }
+        }
+    }
   }
 
   // ── Main lifecycle ───────────────────────────────────────────────────
