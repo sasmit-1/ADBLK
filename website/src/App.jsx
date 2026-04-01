@@ -56,8 +56,8 @@ function Navbar() {
         boxShadow: scrolled ? '0 8px 32px rgba(0,0,0,0.4)' : 'none'
       }}>
         <div className="navbar-brand">
-          <img src="/logo.png" alt="Adblk Logo" style={{ width: '28px', height: '28px', marginRight: '4px' }} />
-          <span>Adblk - By Sasmit Mondal</span>
+          <img src="/logo.png" alt="Ablck Logo" style={{ width: '28px', height: '28px', marginRight: '4px' }} />
+          <span>Ablck - By Sasmit Mondal</span>
         </div>
 
         <ul className="navbar-links">
@@ -353,7 +353,7 @@ function InstallSection() {
       desc: (
         <>
           Click the <strong>Download Setup</strong> button above to download the required extension files. 
-          Extract the downloaded <code>Adblk-Extension.zip</code> somewhere memorable (like your Desktop). <br/><br/>
+          Extract the downloaded <code>Ablck-Extension.zip</code> somewhere memorable (like your Desktop). <br/><br/>
           <strong style={{ color: 'var(--accent-rose)' }}>CRITICAL:</strong> Make sure you extract the contents into a folder instead of just opening the ZIP directly. You need the folder containing <code>manifest.json</code>.
         </>
       ),
@@ -455,13 +455,28 @@ function InstallSection() {
 
 function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-inner">
-        <p>&copy; {new Date().getFullYear()} Adblk - By Sasmit Mondal &mdash; Built with purpose, not profit.</p>
-        <div className="footer-links">
-          <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="#features">Features</a>
-          <a href="#install">Install</a>
+    <footer className="footer" style={{ borderTop: '1px solid rgba(255, 255, 255, 0.05)', paddingTop: '3rem', paddingBottom: '3rem', marginTop: '4rem' }}>
+      <div className="footer-inner" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', textAlign: 'center' }}>
+        <div className="footer-brand" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <img src="/logo.png" alt="Ablck Logo" style={{ width: '40px', height: '40px' }} />
+          <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--text-primary)' }}>Ablck</span>
+        </div>
+        
+        <div style={{ padding: '0.75rem 1.5rem', background: 'rgba(56, 189, 248, 0.05)', borderRadius: '100px', border: '1px solid rgba(56, 189, 248, 0.2)', backdropFilter: 'blur(10px)' }}>
+          <p style={{ margin: 0, color: 'var(--accent-cyan)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.05rem' }}>
+            <Activity size={18} />
+            Created & Maintained by Sasmit Mondal
+          </p>
+        </div>
+        
+        <p style={{ color: 'var(--text-secondary)', maxWidth: '400px', lineHeight: 1.6, marginTop: '0.5rem' }}>
+          &copy; {new Date().getFullYear()} Ablck. Built with purpose, not profit. Free and open source forever.
+        </p>
+
+        <div className="footer-links" style={{ display: 'flex', gap: '2rem', marginTop: '1rem', justifyContent: 'center' }}>
+          <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.2s', fontWeight: '500' }}>GitHub Source</a>
+          <a href="#features" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.2s', fontWeight: '500' }}>Features</a>
+          <a href="#install" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.2s', fontWeight: '500' }}>Install</a>
         </div>
       </div>
     </footer>

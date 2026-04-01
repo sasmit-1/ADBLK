@@ -50,7 +50,7 @@ export async function downloadExtensionZip() {
   // Create a temporary link element to trigger the download
   const link = document.createElement('a');
   link.href = URL.createObjectURL(zipBlob);
-  link.download = 'Adblk-Extension.zip';
+  link.download = 'Ablck-Extension.zip';
   document.body.appendChild(link);
   
   // Trigger user download
