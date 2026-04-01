@@ -6,8 +6,10 @@ A lightweight, privacy-focused browser extension that blocks ads and trackers.
 
 ## 📦 What's Included
 
-- **200 blocking rules** — 50 ad networks + 50 tracker domains
-- **Cosmetic filtering** — hides leftover ad containers/slots via CSS
+- **Exclusive Manga/Anime site protection** — Blocks shady networks like ExoClick, PropellerAds, PopAds, etc.
+- **250+ blocking rules** — 100+ ad networks + 50 tracker domains
+- **3-Layer Ad Killing** — CSS cosmetic filtering, active DOM scanning for "Sponsored Ads," and iframe src sniffing
+- **YouTube Ad Annihilator** — Insta-clicks skip buttons and massively fast-forwards unskippable ads
 - **Toggle on/off** — pause protection without removing the extension
 - **Counter** — tracks total requests blocked
 - **Clean popup UI** — see your protection status at a glance

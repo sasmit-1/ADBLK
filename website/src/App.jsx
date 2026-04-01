@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import LightRays from './components/reactbits/LightRays'
-import TargetCursor from './components/reactbits/TargetCursor'
+
 import { GradientText } from './components/reactbits/GradientText'
 import { SpotlightCard } from './components/reactbits/SpotlightCard'
-import { Shield, Zap, EyeOff, Download, ExternalLink, ChevronRight, Star, Package, Settings, MousePointerClick } from 'lucide-react'
+import { Shield, Zap, EyeOff, Download, ExternalLink, ChevronRight, Star, Package, Settings, MousePointerClick, Activity, Code } from 'lucide-react'
 import { motion } from 'framer-motion'
 import './index.css'
 
@@ -130,8 +130,7 @@ function HeroSection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.6 }}
       >
-        A next-gen adblocker built for Manifest V3. Skip unskippable YouTube ads,
-        obliterate trackers, and experience the web at full speed — completely free.
+        A next-gen adblocker built for Manifest V3. Skip unskippable YouTube ads, obliterates 100+ shady networks, collapses manga/anime popups, and cleans the web — completely free.
       </motion.p>
 
       <motion.div
@@ -207,6 +206,12 @@ function FeaturesSection() {
       colorClass: 'emerald',
       title: 'Network-Level Blocking',
       desc: 'Intercepts tracking scripts and ad network requests using the new DeclarativeNetRequest API. Built for Chrome\'s Manifest V3 from the ground up.'
+    },
+    {
+      icon: <Star size={26} color="#fbbf24" />,
+      colorClass: 'yellow',
+      title: 'Manga & Streaming Protection',
+      desc: 'Decimates shady popup networks (ExoClick, PopAds) and aggressively collapses sidebar "Sponsored" blocks on pirate streaming and manga sites.'
     }
   ]
 
@@ -265,6 +270,73 @@ function FeaturesSection() {
           </motion.div>
         ))}
       </motion.div>
+    </section>
+  )
+}
+
+function HowItWorksSection() {
+  const mechanisms = [
+    {
+      num: '01',
+      title: 'DeclarativeNetRequest API',
+      desc: 'The blocker sits at the browser core level, intercepting domain requests before they even touch the network. Over 100+ shady ad syndicates and 50+ tracking matrices are blocked at the network-level.',
+      icon: <Shield size={20} />
+    },
+    {
+      num: '02',
+      title: 'Active DOM Mutation Observer',
+      desc: 'Instead of polling infinitely, we leverage hardware-accelerated MutationObservers. It idles at 0% CPU, but the millisecond the website tries to inject a new ad via JavaScript, our engine wakes up and nukes it.',
+      icon: <Activity size={20} />
+    },
+    {
+      num: '03',
+      title: '3-Layer Cosmetic Engine',
+      desc: 'It doesn\'t just hide things with CSS. Our script actively sniffs out invisible iframes from popunder networks and uses TreeWalkers to detect text like "Sponsored Ads", collapsing their entire parent trees instantly.',
+      icon: <Code size={20} />
+    }
+  ]
+
+  return (
+    <section className="section" id="how-it-works" style={{ background: 'rgba(255, 255, 255, 0.02)' }}>
+      <motion.div
+        className="section-header"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <div className="section-label">
+          <Zap size={14} />
+          Under The Hood
+        </div>
+        <h2 className="section-title">
+          How it <GradientText text="works" />
+        </h2>
+        <p className="section-desc">
+          Built on a highly optimized 3-layer ad blocking architecture to save your memory and CPU.
+        </p>
+      </motion.div>
+
+      <div className="glow-line" style={{ marginBottom: '3rem' }} />
+
+      <div className="steps-container">
+        {mechanisms.map((mech, i) => (
+          <motion.div
+            key={i}
+            className="step-card cursor-target"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: i * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            <div className="step-number" style={{ color: 'var(--accent-cyan)' }}>{mech.num}</div>
+            <div className="step-content">
+              <h3>{mech.title}</h3>
+              <p>{mech.desc}</p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
     </section>
   )
 }
@@ -412,20 +484,14 @@ function App() {
         />
       </div>
 
-      {/* Target Cursor (desktop only) */}
-      <TargetCursor
-        targetSelector=".cursor-target"
-        spinDuration={3}
-        hideDefaultCursor={true}
-        hoverDuration={0.15}
-        parallaxOn={true}
-      />
+
 
       {/* Content */}
       <div className="content-layer">
         <Navbar />
         <HeroSection />
         <FeaturesSection />
+        <HowItWorksSection />
         <InstallSection />
         <Footer />
       </div>
