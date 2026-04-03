@@ -6,13 +6,16 @@ const EXTENSION_FILES = [
   'manifest.json',
   'background.js',
   'content.js',
+  'redirect_blocker.js',
+  'blocked.html',
   'popup.html',
   'popup.js',
   'icons/icon16.png',
   'icons/icon48.png',
   'icons/icon128.png',
   'rules/ads.json',
-  'rules/trackers.json'
+  'rules/trackers.json',
+  'rules/redirects.json'
 ];
 
 /**
