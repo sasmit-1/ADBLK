@@ -1,13 +1,14 @@
 {
   "manifest_version": 3,
   "name": "CleanView Ad Blocker",
-  "version": "1.0.0",
-  "description": "Blocks ads and trackers for a cleaner, faster web.",
+  "version": "2.0.0",
+  "description": "A different kind of ad blocker. CleanView uses multi-layer protection to block ads, stop redirects, and neutralize click-hijacking — by Sasmit Mondal.",
   "permissions": [
     "declarativeNetRequest",
     "declarativeNetRequestFeedback",
     "storage",
-    "tabs"
+    "tabs",
+    "webNavigation"
   ],
   "host_permissions": ["<all_urls>"],
   "action": {
@@ -34,6 +35,11 @@
         "id": "ruleset_trackers",
         "enabled": true,
         "path": "rules/trackers.json"
+      },
+      {
+        "id": "ruleset_redirects",
+        "enabled": true,
+        "path": "rules/redirects.json"
       }
     ]
   },
@@ -43,8 +49,20 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
+      "js": ["redirect_blocker.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["<all_urls>"],
       "js": ["content.js"],
       "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["blocked.html"],
+      "matches": ["<all_urls>"]
     }
   ]
 }

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blocked by CleanView</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --surface: #13131a;
+      --border: #1e1e2e;
+      --accent: #7c5cfc;
+      --accent-glow: rgba(124, 92, 252, 0.3);
+      --green: #22d3a5;
+      --red: #ff5470;
+      --text: #e8e8f0;
+      --muted: #6b6b80;
+      --mono: 'Space Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Animated background gradient */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(124, 92, 252, 0.06) 0%, transparent 60%),
+                  radial-gradient(circle at 70% 60%, rgba(255, 84, 112, 0.05) 0%, transparent 60%);
+      animation: drift 20s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-5%, 3%); }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 520px;
+      padding: 48px;
+      text-align: center;
+    }
+
+    .shield {
+      width: 80px; height: 80px;
+      margin: 0 auto 28px;
+      background: rgba(255, 84, 112, 0.08);
+      border: 2px solid rgba(255, 84, 112, 0.3);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: shieldPulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes shieldPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255, 84, 112, 0.2); }
+      50% { box-shadow: 0 0 30px 10px rgba(255, 84, 112, 0.1); }
+    }
+
+    .shield svg { width: 36px; height: 36px; }
+
+    h1 {
+      font-family: var(--mono);
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    h1 span { color: var(--red); }
+
+    .subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .blocked-url {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 28px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--red);
+      word-break: break-all;
+      text-align: left;
+      opacity: 0.8;
+    }
+
+    .blocked-url::before {
+      content: 'BLOCKED URL';
+      display: block;
+      font-size: 9px;
+      letter-spacing: 1.2px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 30px var(--accent-glow);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="shield">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L4 5V11C4 16.55 7.84 21.74 12 23C16.16 21.74 20 16.55 20 11V5L12 2Z" stroke="#ff5470" stroke-width="2" fill="rgba(255,84,112,0.15)"/>
+        <path d="M9 12L11 14L15 10" stroke="#ff5470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
+        <line x1="8" y1="8" x2="16" y2="16" stroke="#ff5470" stroke-width="2" stroke-linecap="round"/>
+        <line x1="16" y1="8" x2="8" y2="16" stroke="#ff5470" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <h1>Redirect <span>Blocked</span></h1>
+    <p class="subtitle">
+      CleanView intercepted a suspicious redirect that was trying to take you to a potentially harmful website. This is typically caused by malicious ads or click-hijacking scripts.
+    </p>
+
+    <div class="blocked-url" id="blockedUrl">Unknown</div>
+
+    <div class="actions">
+      <button class="btn btn-primary" onclick="history.back()">← Go Back</button>
+      <a class="btn btn-secondary" href="https://google.com">Go to Google</a>
+    </div>
+  </div>
+
+  <div class="footer">CleanView Ad Blocker · by Sasmit Mondal</div>
+
+  <script>
+    // Show the blocked URL from query params
+    const params = new URLSearchParams(window.location.search);
+    const url = params.get('url');
+    if (url) {
+      document.getElementById('blockedUrl').textContent = decodeURIComponent(url);
+    }
+  </script>
+</body>
+</html>
